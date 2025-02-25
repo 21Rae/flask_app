@@ -1,5 +1,15 @@
 from flask import Flask, request, render_template
 import joblib
+import pickle
+
+# Save an object
+with open("model.pkl", "wb") as file:
+    pickle.dump(model, file)
+
+# Load the object
+with open("model.pkl", "rb") as file:
+    loaded_model = pickle.load(file)
+
 import numpy as np
 
 app = Flask(__name__)
